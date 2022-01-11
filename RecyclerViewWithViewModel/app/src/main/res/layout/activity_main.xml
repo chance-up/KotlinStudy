@@ -20,6 +20,7 @@
             android:layout_height="0dp"
             android:layout_marginTop="200dp"
             tools:listitem="@layout/item_list"
+            app:items="@{viewModel.userList}"
             app:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"

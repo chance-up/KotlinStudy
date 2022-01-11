@@ -24,7 +24,6 @@ class MainViewModel:ViewModel() {
     }
 
     fun buttonClick(){
-        Log.e("PARK", "Button Click")
         val user = User("Test","TestName","https://t1.daumcdn.net/cfile/tistory/2511E03B577BB58733")
         items.add(user)
         _userList.value = items

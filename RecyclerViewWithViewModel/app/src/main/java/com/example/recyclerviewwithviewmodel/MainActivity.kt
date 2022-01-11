@@ -19,26 +19,40 @@ class MainActivity : AppCompatActivity() {
         UserAdapter()
     }
 
-    //private val mainViewModel: MainViewModel by viewModels()
+    // ViewModelProvider 따로 안만들어줘도된다.
     private val mainViewModel: MainViewModel by viewModels()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-
-        //binding = DataBindingUtil.setContentView(this,R.layout.activity_main)
-        // 대리님 시도하신 방법
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+
 
         binding.apply {
             viewModel = mainViewModel
-            recyclerView.adapter = userAdapter
+            //recyclerView.adapter = userAdapter
+            lifecycleOwner = this@MainActivity
         }
 
-        mainViewModel.userList.observe(this, Observer {
-            Log.e("PARK", "${it.size}")
-            userAdapter.setData(it)
-        })
+
+//        mainViewModel.userList.observe(this, Observer {
+//            Log.e("PARK", "${it.size}")
+//            userAdapter.setData(it)
+//        })
+
+
+
+//        binding.apply {
+//            viewModel = mainViewModel
+//            recyclerView.adapter = userAdapter
+//            //lifecycleOwner = this@MainActivity
+//        }
+//
+//
+//        mainViewModel.userList.observe(this, Observer {
+//            Log.e("PARK", "${it.size}")
+//            userAdapter.setData(it)
+//        })
 
 
 

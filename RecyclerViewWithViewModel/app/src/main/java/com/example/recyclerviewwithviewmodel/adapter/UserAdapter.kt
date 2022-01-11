@@ -54,12 +54,4 @@ class UserAdapter(): RecyclerView.Adapter<UserAdapter.MyViewHolder>() {
     override fun getItemCount(): Int {
         return userList.size
     }
-
-    fun setData(data : ArrayList<User>){
-        userList = data
-    }
-
-
-
-
 }

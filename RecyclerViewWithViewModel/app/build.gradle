@@ -53,4 +53,5 @@ dependencies {
     def ktx_version = "1.4.0"
     implementation "androidx.fragment:fragment-ktx:$ktx_version"
     implementation "androidx.activity:activity-ktx:$ktx_version"
+
 }
