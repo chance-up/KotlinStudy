@@ -7,8 +7,14 @@ import androidx.lifecycle.ViewModel
 import com.example.recyclerviewwithviewmodel.model.User
 
 class MainViewModel:ViewModel() {
-    private val _userList = MutableLiveData<ArrayList<User>>()
+    private val _userName = MutableLiveData<String>()
+    val userName : LiveData<String>
+        get() = _userName
 
+
+
+
+    private val _userList = MutableLiveData<ArrayList<User>>()
     val userList : LiveData<ArrayList<User>>
         get() = _userList
 
