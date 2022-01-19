@@ -6,10 +6,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.fragment.findNavController
 import androidx.viewpager2.widget.ViewPager2
 import com.example.tabwithviewpager2.R
 import com.example.tabwithviewpager2.adapter.ViewPagerAdapter
 import com.example.tabwithviewpager2.databinding.FragmentStartBinding
+import com.google.android.material.tabs.TabLayoutMediator
 
 class StartFragment : Fragment() {
 
@@ -22,21 +24,17 @@ class StartFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        fragmentStartBinding.button.text = "ttttt"
-        setupViewPager2()
+        connectViewPagerAndTabLayout()
     }
 
-    private fun setupViewPager2() {
+    fun addFragmentToViewPager(){
         val fragmentList = arrayListOf<Fragment>(
-            FirstFragment.newInstance(),
-            SecondFragment.newInstance(),
-            ThirdFragment.newInstance()
+            FirstFragment(),
+            SecondFragment(),
+            ThirdFragment()
         )
 
-        val adapter = ViewPagerAdapter(
-            fragmentList,
-            requireActivity()
-        )
+        val adapter = ViewPagerAdapter(fragmentList, requireActivity())
         fragmentStartBinding.viewPager.adapter = adapter
         fragmentStartBinding.viewPager.registerOnPageChangeCallback(object : ViewPager2.OnPageChangeCallback() {
             override fun onPageSelected(position: Int) {
@@ -44,7 +42,15 @@ class StartFragment : Fragment() {
                 Log.e("ViewPagerFragment", "Page ${position+1}")
             }
         })
-
     }
 
+    fun connectViewPagerAndTabLayout(){
+        val tabLayout = fragmentStartBinding.tabLayout
+        val viewPager = fragmentStartBinding.viewPager
+
+        addFragmentToViewPager()
+        TabLayoutMediator(tabLayout, viewPager) { tab, position ->
+            tab.text = "OBJECT ${(position + 1)}"
+        }.attach()
+    }
 }
