@@ -2,14 +2,15 @@ package com.example.recyclerviewtest1.adapter
 
 import androidx.databinding.BindingAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.example.recyclerviewtest1.data.User
 
 object BindingAdapter {
 
-//    @BindingAdapter("items")
-//    @JvmStatic
-//    fun RecyclerView.setItem(items:ArrayList<Dog>){
-//        val adapter = RecyclerViewAdapter(items)
-//        setAdapter(adapter)
-//        adapter.notifyDataSetChanged()
-//    }
+    @BindingAdapter("items")
+    @JvmStatic
+    fun setItem(recyclerView: RecyclerView,items:ArrayList<User>){
+        val adapter = RecyclerViewAdapter()
+        recyclerView.adapter = adapter
+        adapter.setItem(items)
+    }
 }

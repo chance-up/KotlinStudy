@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/ff"
-        android:name="com.example.recyclerviewtest1.FirstFragment"
+        android:name="com.example.recyclerviewtest1.ui.FirstFragment"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"

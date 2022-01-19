@@ -10,7 +10,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.recyclerviewtest1.R
 import com.example.recyclerviewtest1.data.User
 
-class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>() {
+class RecyclerViewAdapter() : RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>() {
     private val userList = ArrayList<User>()
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -37,7 +37,7 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolde
     override fun getItemCount(): Int = userList.size
 
     fun setItem(items: ArrayList<User>) {
-        val diffCallback = DogDiffCallback(userList, items)
+        val diffCallback = UserDiffCallback(userList, items)
         val diffResult = DiffUtil.calculateDiff(diffCallback)
         userList.clear()
         userList.addAll(items)
@@ -45,7 +45,7 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolde
     }
 
 
-    inner class DogDiffCallback(private val oldList: ArrayList<User>, private val newList: ArrayList<User>) : DiffUtil.Callback() {
+    inner class UserDiffCallback(private val oldList: ArrayList<User>, private val newList: ArrayList<User>) : DiffUtil.Callback() {
         override fun getOldListSize(): Int = oldList.size
 
         override fun getNewListSize(): Int = newList.size
@@ -58,4 +58,7 @@ class RecyclerViewAdapter : RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolde
             return oldList[oldItemPosition] == newList[newItemPosition]
         }
     }
+
+
+
 }
