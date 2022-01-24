@@ -1,7 +1,9 @@
 package com.example.searchbookkakao.data
 
+import androidx.room.Entity
 import com.google.gson.annotations.SerializedName
 
+@Entity
 data class Book (
     @SerializedName("title")
     val title : String,
@@ -30,3 +32,5 @@ data class MetaDataResponse(
     @SerializedName("total_count")
     val totalCount: String
 )
+
+
