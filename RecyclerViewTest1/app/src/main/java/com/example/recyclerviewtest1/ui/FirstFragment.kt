@@ -6,7 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import com.example.recyclerviewtest1.adapter.RecyclerViewAdapter
+import com.example.recyclerviewtest1.adapter.UserRecyclerViewAdapter
 import com.example.recyclerviewtest1.data.User
 import com.example.recyclerviewtest1.databinding.FragmentFirstBinding
 import com.example.recyclerviewtest1.ui.viewmodel.FirstViewModel
@@ -25,13 +25,23 @@ class FirstFragment : Fragment() {
         return binding.root
     }
 
-//    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-//        super.onViewCreated(view, savedInstanceState)
-//        binding.button.setOnClickListener{
-//            firstViewModel.addUser()
-//            //val recyclerViewAdapter = RecyclerViewAdapter()
-//            //binding.recyclerView.adapter = recyclerViewAdapter
-//            //recyclerViewAdapter.setItem(firstViewModel.users.value!!)
-//        }
-//    }
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        binding.button.setOnClickListener{
+
+            val userList = arrayListOf<User>(
+                User(1,"Choi","31"),
+                User(2,"Kim","28"),
+                User(3,"Park","36"),
+            )
+            val recyclerViewAdapter = UserRecyclerViewAdapter()
+            binding.recyclerView.adapter = recyclerViewAdapter
+
+            recyclerViewAdapter.setItem(userList)
+
+            recyclerViewAdapter.notifyDataSetChanged()
+
+
+        }
+    }
 }

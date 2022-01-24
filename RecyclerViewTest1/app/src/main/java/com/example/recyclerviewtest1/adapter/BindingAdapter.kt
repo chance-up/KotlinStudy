@@ -6,11 +6,11 @@ import com.example.recyclerviewtest1.data.User
 
 object BindingAdapter {
 
-    @BindingAdapter("items")
-    @JvmStatic
-    fun setItem(recyclerView: RecyclerView,items:ArrayList<User>){
-        val adapter = RecyclerViewAdapter()
-        recyclerView.adapter = adapter
-        adapter.setItem(items)
-    }
+//    @BindingAdapter("items")
+//    @JvmStatic
+//    fun setItem(recyclerView: RecyclerView,items:ArrayList<User>){
+//        val adapter = UserRecyclerViewAdapter()
+//        recyclerView.adapter = adapter
+//        adapter.setItem(items)
+//    }
 }
