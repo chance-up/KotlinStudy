@@ -39,7 +39,7 @@ class FirstFragment : Fragment() {
 
             recyclerViewAdapter.setItem(userList)
 
-            recyclerViewAdapter.notifyDataSetChanged()
+
 
 
         }

@@ -1,6 +1,9 @@
 package com.example.searchbookkakao.data
 
 import androidx.room.Entity
+import androidx.room.ProvidedTypeConverter
+import androidx.room.TypeConverter
+import com.google.gson.Gson
 import com.google.gson.annotations.SerializedName
 
 @Entity
@@ -32,5 +35,17 @@ data class MetaDataResponse(
     @SerializedName("total_count")
     val totalCount: String
 )
+
+
+@ProvidedTypeConverter
+class StringListTypeConverter(private val gson: Gson) {
+    @TypeConverter
+    fun arrayListToJson(value: ArrayList<String>): String? {
+        return gson.toJson(value) }
+    @TypeConverter
+    fun jsonToArrayList(value: String): List<String> {
+        return gson.fromJson(value, Array<String>::class.java).toList()
+    }
+}
 
 

@@ -7,7 +7,6 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
 import com.example.searchbookkakao.adapter.BookRecyclerViewAdapter
-import com.example.searchbookkakao.data.BookDatabase
 import com.example.searchbookkakao.databinding.FragmentBookBinding
 import com.example.searchbookkakao.ui.viewmodel.BookViewModel
 
@@ -32,6 +31,8 @@ class BookFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         fragmentBookBinding.recyclerViewBook.adapter = BookRecyclerViewAdapter()
+
+
 
 
     }

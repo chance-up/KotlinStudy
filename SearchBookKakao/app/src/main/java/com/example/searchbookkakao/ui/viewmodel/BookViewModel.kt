@@ -6,7 +6,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.searchbookkakao.data.Book
-import com.example.searchbookkakao.data.BookDatabase
 import com.example.searchbookkakao.network.NetWorkModule
 import kotlinx.coroutines.launch
 
@@ -19,8 +18,6 @@ class BookViewModel :ViewModel(){
 
     private val _booksDB = MutableLiveData<ArrayList<Book>>()
     val booksDB:LiveData<ArrayList<Book>> = _booksDB
-
-    //val allBooks:LiveData<ArrayList<Book>> =
 
     init {
         _books.value = arrayListOf(
