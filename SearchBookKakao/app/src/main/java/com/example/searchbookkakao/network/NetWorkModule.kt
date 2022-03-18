@@ -13,7 +13,7 @@ object NetWorkModule {
     init{
         val interceptor = Interceptor{ it.proceed(
             it.request().newBuilder()
-                .addHeader("Authorization","KakaoAK b6b671a1e6c6748f9ff005f325d7740b")
+                .addHeader("Authorization","KakaoAK 00000000000")
                 .build()
             )
         }
